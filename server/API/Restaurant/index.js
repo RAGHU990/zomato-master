@@ -19,7 +19,9 @@ const Router = express.Router();
          const restaurants = await RestaurantModel.find({ city });
          return res.json({restaurants});
   }   catch (error) {
-  return res.status(500).json({ error:error.message });
+  return res
+  .status(500)
+  .json({ error:error.message });
   }   
 });
 
@@ -34,7 +36,9 @@ try {
    const { _id } = req.params;
    const restaurant = await RestaurantModel.findOne(_id);
 
-   if(!restaurant)  return res.status(404).json({ error: "Restaurant Not Found" });
+   if(!restaurant)  return res
+   .status(404)
+   .json({ error: "Restaurant Not Found" });
 
    return  res.json({ restaurant });
 } catch (error) {

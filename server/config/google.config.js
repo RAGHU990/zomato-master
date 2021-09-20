@@ -1,6 +1,6 @@
 import googleOAuth from "passport-google-oauth20";
 
-import { UserModel } from "../../database/user";
+import { UserModel } from "../database/allModel";
 
 const GoogleStrategy = googleOAuth.Strategy;
 
@@ -22,7 +22,6 @@ export default (passport) => {
             };
             try {
                 // check if the user exist 
-                
                 const user = await UserModel.findOne({ email: newUser.email });
                 if (user){
                 //generating token

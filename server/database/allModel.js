@@ -1,17 +1,17 @@
-import { FoodModal } from "./food";
-import { ImageModal } from "./image";
-import { MenuModal } from "./menu";
-import { OrderModal } from "./order";
-import { RestaurantModal } from "./restaurant";
-import { ReviewModal } from "./reviews";
-import { UserModal } from "./user";
+import { FoodModel } from "./food";
+import { ImageModel } from "./image";
+import { MenuModel } from "./menu";
+import { OrderModel } from "./order";
+import { RestaurantModel } from "./restaurant";
+import { ReviewModel } from "./reviews";
+import { UserModel } from "./user";
 
 export {
-  FoodModal,
-  ImageModal,
-  MenuModal,
-  OrderModal,
-  RestaurantModal,
-  ReviewModal,
-  UserModal,
+  FoodModel,
+  ImageModel,
+  MenuModel,
+  OrderModel,
+  RestaurantModel,
+  ReviewModel,
+  UserModel,
 };
