@@ -16,6 +16,7 @@ import Auth from "./API/Auth";
 import Restaurant from "./API/Restaurant";
 import Food from "./API/Food";
 import Menu from "./API/Menu";
+import Image  from "./API/Image";
 
 //Database connection 
 import ConnectDB from "./database/connection";
@@ -40,12 +41,13 @@ zomato.use("/auth", Auth);
 zomato.use("/restaurant", Restaurant);
 zomato.use("/foods", Food);
 zomato.use("/menu", Menu);
+zomato.use("/image", Image);
 
 zomato.get("/" ,(req, res) => res.json({message: "Setup success"}));
 
 
 zomato.listen(4000, () => 
-  ConnectDB().then(() => console.log("Server is running... 🚀")) 
+  ConnectDB().then(() => console.log("Server is running...🚀")) 
   .catch(() =>  console.log("Server is running, but database connection failed..."))
 
 );
