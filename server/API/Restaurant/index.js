@@ -1,10 +1,14 @@
 // Libararies
 import express from "express";
+import { isValidObjectId } from "mongoose";
 import passport from "passport";
 
 // Database model 
 import {RestaurantModel}  from "../../database/allModel";
 
+//Validation
+import { ValidateRestaurantCity, ValidateRestaurantSearchString } from "../../validation/restaurant";
+import { ValidateRestaurantId } from "../../validation/food";
 const Router = express.Router();
 
 /* Route   /
@@ -15,6 +19,7 @@ const Router = express.Router();
 */ 
  Router.get("/",async (req, res ) => {
   try {
+     await ValidateRestaurantCity(req.query);
          const { city } = req.query;
          const restaurants = await RestaurantModel.find({ city });
          return res.json({restaurants});
@@ -33,6 +38,7 @@ const Router = express.Router();
 */ 
 Router.get ("/:_id", async  (req, res) =>{
 try {
+   await ValidateRestaurantId(req.params);
    const { _id } = req.params;
    const restaurant = await RestaurantModel.findOne(_id);
 
@@ -56,6 +62,7 @@ try {
 */  
 Router.get("/search", async (req, res) => {
 try {
+   await ValidateRestaurantSearchString(req.body);
    const { searchString } = req.body;
 
    const  restaurant = await RestaurantModel.find({
