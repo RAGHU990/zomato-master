@@ -29,7 +29,7 @@ return (
 const LargeNav = () => {
     return (
         <> 
-        <div className="container px-20 mx-auto"> 
+        <div className=" hidden lg:inline  container px-20 mx-auto"> 
     <div className="hidden w-full lg:flex gap-4 items-center  justify-between ">
     <div className="w-28"  >
                    <img src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
