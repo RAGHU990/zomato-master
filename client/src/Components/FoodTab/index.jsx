@@ -1,31 +1,72 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {RiShoppingBagLine} from "react-icons/ri";
 import {IoFastFoodOutline} from "react-icons/io5"
 import {BiDrink} from "react-icons/bi"
 import {IoNutritionOutline} from "react-icons/io5"
+import { useParams, Link } from 'react-router-dom';
 
 const MobileTabs = () => {
+    const [allTypes, setAllTypes] = useState([
+    {
+        id: `delivery`,
+        icon:     <RiShoppingBagLine />,
+        name: "Delivery",
+        isActive: false,
+    },
+    {
+        id: `dining`,
+        icon:     <IoFastFoodOutline />,
+        name: "Dinning Out",
+        isActive: false,
+    },
+    {
+        id: `night`,
+        icon:    < BiDrink/>,
+        name: "Night life",
+        isActive: false,
+    },
+    {
+        id: `nutri`,
+        icon:    <IoNutritionOutline/>,
+        name: "Nutrition",
+        isActive: false,
+    },
+]);
+    const { type } = useParams();
+
+ 
 return <>
-  <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 flex items-center justify-between md:justify-evenly w-full z-10 text-gray-500 border">
-      <div className="flex flex-col items-center text-xl">
-      <RiShoppingBagLine />
-      <h5 className="text-sm">Delivery</h5>
-      </div>
-      <div className="flex flex-col items-center text-xl">
-      <IoFastFoodOutline />
-      <h5 className="text-sm">Dinning Out</h5>
-      </div>
-      <div className="flex flex-col items-center text-xl">
-      <BiDrink/>
-      <h5 className="text-sm">Drinks</h5>
-      </div>
-      <div className="flex flex-col items-center text-xl">
-      <IoNutritionOutline/>
-      <h5 className="text-sm">Nutrition</h5>
-      </div>
+  <div className="lg:hidden  bg-white shadow-lg p-3 fixed bottom-0
+                  flex items-center justify-between md:justify-evenly
+                   w-full z-10 text-gray-500 border">
+  
+      {
+          allTypes.map((items) => (
+              <Link to={`/${items.id}`}>
+            <div 
+            className={
+              type === items.id
+               ?  "flex flex-col relative items-center text-xl text-zomato-400"
+               :  "flex flex-col items-center text-xl"
+            }
+            >
+                <div 
+                className = {
+                    type === items.id
+                     && "absolute -top-3 w-full h-2 border-t-2 border-zomato-400"
+                    } 
+                />
+
+           {items.icon}
+            <h5 className="text-sm">{items.name}</h5>
+           </div> 
+           </Link>
+          ))
+      }
       
   </div>
        </>;
+       
 };
 const LargeTabs = () =>  {
     return <> 
@@ -41,7 +82,7 @@ const LargeTabs = () =>  {
                  <div className="flex items-center gap-3">
                      <div className="w-16 h-16 bg-gray-100 p-4 rounded-full ">
                          <img src="https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png" 
-                         alt="delivery" 
+                         alt="Dinning Out" 
                          className="w-full h-full "/>
                      </div>
                      <h3 className="text-xl text-grat-700">Dining Out</h3>
