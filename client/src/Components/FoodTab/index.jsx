@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, } from 'react';
 import {RiShoppingBagLine} from "react-icons/ri";
 import {IoFastFoodOutline} from "react-icons/io5"
 import {BiDrink} from "react-icons/bi"
@@ -7,7 +7,7 @@ import { useParams, Link } from 'react-router-dom';import classname from "classn
 import classNames from 'classnames';
 
 const MobileTabs = () => {
-    const [allTypes, setAllTypes] = useState([
+    const [allTypes, ] = useState([
     {
         id: `delivery`,
         icon:     <RiShoppingBagLine />,
@@ -70,7 +70,7 @@ return <>
        
 };
 const LargeTabs = () =>  {
-    const [allTypes, setAllTypes] = useState([
+    const [allTypes, ] = useState([
         {
             id:`delivery`,
             imageDefault:"https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png",
@@ -101,9 +101,9 @@ const LargeTabs = () =>  {
         },
     ]);
 
-    const { type } = useParams();
+    const {type } = useParams();
     return <> 
-             <div className="hidden lg:flex gap-14 container px-20 mx-auto">
+             <div className="hidden lg:flex gap-14 container px-20  my-8 mx-auto">
                 
                {allTypes.map((items) => ( 
                    <Link to={`/${items.id}`}>
