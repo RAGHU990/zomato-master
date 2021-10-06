@@ -5,6 +5,7 @@ import Slider from "react-slick"
 import DelivertCatagory from './DelivertCatagory';
 import { NextArrow, PrevArrow } from '../CarousalArrow';
 
+
 const DeliveryCarousal = () => {
 
     const categories = [{
