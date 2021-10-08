@@ -4,11 +4,15 @@ import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   return (
+    
     <div className="flex w-full items-center justify-between lg:hidden">
+      <Link to={`/delivery`}>
       <AiOutlineArrowLeft />
+      </Link>
       <div className="w-28">
         <img
           src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
@@ -16,6 +20,7 @@ const MobileNav = () => {
           className="w-full h-full"
         />
       </div>
+      
       <div className="flex items-center gap-3">
         <button className="bg-zomato-400 text-white py-2 px-3 rounded-full">
           Use App
@@ -33,6 +38,7 @@ const LargeNav = () => {
     <>
       <div className="hidden lg:inline container px-20 mx-auto">
         <div className="hidden gap-4 w-full items-center justify-around lg:flex ">
+        <Link to={`/delivery`}>
           <div className="w-28">
             <img
               src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
@@ -40,6 +46,7 @@ const LargeNav = () => {
               className="w-full h-full"
             />
           </div>
+          </Link>
           <div className=" w-3/4 bg-white shadow-md p-3 flex items-center gap-3  border border-gray-200 rounded">
             <div className="flex items-center gap-2 border-r-2 border-gray-300 pr-2">
               <span className="text-zomato-400">
