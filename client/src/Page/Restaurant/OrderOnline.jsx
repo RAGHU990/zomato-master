@@ -40,18 +40,6 @@ const OrderOnline = () => {
                   ]
                 }
                    />
-                   <FoodList
-                 title="Briyani"
-                 items={[
-                  {
-                    price:"280" ,
-                    rating: 3 ,
-                    description:"A novel combination of our classic seeraga samba Biryani crowned with succulent chicken 65 chunks - Served With Boiled egg, Raita & Salna.",
-                    title :"Thalappakatti Chicken 65 Biryani" ,
-                    image:"https://b.zmtcdn.com/data/dish_photos/db1/a7ec0734459e3fb75c16e9df36419db1.jpg"}
-                  ]
-                }
-                   />
             </section>
             
             </div>
