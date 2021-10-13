@@ -4,8 +4,9 @@ import {IoTimeOutline} from "react-icons/io5";
 
 // components
 import FloatMenuBtn from "../../Components/restaurant/Order-Online/FloatMenuBtn";
-import Fooditem from "../../Components/restaurant/Order-Online/Fooditem";
+import Fooditem from "../../Components/restaurant/Order-Online/FoodItem";
 import MenuListContainer from "../../Components/restaurant/Order-Online/MenuListContainer";
+import FoodList from "../../Components/restaurant/Order-Online/FoodList";
 
 const OrderOnline = () => {
   return (
@@ -18,20 +19,42 @@ const OrderOnline = () => {
 
 
         </aside>
-        <div className="w-full md:3/4">
-          <h2 className="text-xl font-semibold">Order Online</h2>
+        <div className="w-full px-3 h-screen overflow-y-scroll md:3/4">
+         <div className="pl-3 mb-4">
+         <h2 className="text-xl font-semibold">Order Online</h2>
           <h4 className="flex items-center gap-2 font-light text-gray-500"> 
             <AiOutlineCompass />  Live Track Your Order | <IoTimeOutline />
           </h4>
-          <section>
-            <Fooditem
-             image= "https://b.zmtcdn.com/data/dish_photos/db1/a7ec0734459e3fb75c16e9df36419db1.jpg?fit=around|130:130&crop=130:130;*,*"
-              price="280" 
-              rating= {3} 
-             description="A novel combination of our classic seeraga samba Biryani crowned with succulent chicken 65 chunks - Served With Boiled egg, Raita & Salna."
-             tilte ="Thalappakatti Chicken 65 Biryani" />
-          </section> 
-           </div>
+         </div>
+
+          <section className="flex flex-col gap-3 md:gap-5">
+                <FoodList
+                 title="Recommended"
+                 items={[
+                  {
+                    price:"280" ,
+                    rating: 3 ,
+                    description:"A novel combination of our classic seeraga samba Biryani crowned with succulent chicken 65 chunks - Served With Boiled egg, Raita & Salna.",
+                    title :"Thalappakatti Chicken 65 Biryani" ,
+                    image:"https://b.zmtcdn.com/data/dish_photos/db1/a7ec0734459e3fb75c16e9df36419db1.jpg"}
+                  ]
+                }
+                   />
+                   <FoodList
+                 title="Briyani"
+                 items={[
+                  {
+                    price:"280" ,
+                    rating: 3 ,
+                    description:"A novel combination of our classic seeraga samba Biryani crowned with succulent chicken 65 chunks - Served With Boiled egg, Raita & Salna.",
+                    title :"Thalappakatti Chicken 65 Biryani" ,
+                    image:"https://b.zmtcdn.com/data/dish_photos/db1/a7ec0734459e3fb75c16e9df36419db1.jpg"}
+                  ]
+                }
+                   />
+            </section>
+            
+            </div>
       </div>
       <FloatMenuBtn />
     </>
