@@ -51,7 +51,7 @@ const RestaurantLayout = (props) => {
         </div>
         { props.children }
       </div>
-      <CartContainer />
+      <CartContainer/>
     </>
   );
 };
