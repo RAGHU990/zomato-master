@@ -9,12 +9,13 @@ import FoodTab from "../Components/FoodTab";
 import { getCart } from "../Redux/Reducer/Cart/Cart.action";
 
 const HomeLayout = (props) => {
-    const dispatch = useDispatch;
-  useEffect(() => {
-    dispatch(getCart());
-  }, []);
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getCart());
+    }, []);
     
+
+
     return <>
     <Navbar />
     <FoodTab />

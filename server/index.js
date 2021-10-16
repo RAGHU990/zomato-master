@@ -8,6 +8,7 @@ import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
 
+
 //configs
 import googleAuthConfig from "./config/google.config";
 import routeConfig from "./config/route.config";
@@ -21,6 +22,7 @@ import Image  from "./API/Image";
 import Order from "./API/Orders";
 import Reviews from "./API/Reviews";
 import User from "./API/User";
+import Payments from "./API/Payments";
 
 //Database connection 
 import ConnectDB from "./database/connection";
