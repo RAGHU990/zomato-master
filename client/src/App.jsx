@@ -1,5 +1,6 @@
 import  { Route, Redirect} from "react-router-dom";
 import axios from "axios";
+import GoogleAuth from "./Page/GoogleAuth";
 //HOC
 import HomeLayoutHOC from "./HOC/Home.HOC";
 import RestaurantLayoutHOC from "./HOC/Restaurant.HOC";
@@ -7,12 +8,6 @@ import CheckoutLayoutHOC from "./HOC/Checkout.Hoc";
 
 //Component
 import Temp from "./Components/temp";
-
-// axios global settings
-if (localStorage.zomatoUser) {
-  const { token } = JSON.parse(localStorage.zomatoUser);
-  axios.defaults.headers.common['Authorization'] = `Bearer ${ token }`;
-} 
 
 // Page
 import Home from "./Page/Home";
@@ -24,6 +19,14 @@ import Photos from "./Page/Restaurant/Photos";
 import Checkout from "./Page/Checkout";
 import RedirectRestaurant from "./Page/Restaurant/Redirect";
 
+// axios global settings
+if (localStorage.zomatoUser) {
+  const { token } = JSON.parse(localStorage.zomatoUser);
+  axios.defaults.headers.common['Authorization'] = `Bearer ${ token }`;
+} 
+
+
+
 function App() {
   return (
     <>
@@ -34,6 +37,7 @@ function App() {
     
     
     <HomeLayoutHOC path="/:type" exact component ={ Home } />
+    <HomeLayoutHOC path="/google/:token" exact component={GoogleAuth} />
     <RestaurantLayoutHOC path="/restaurant/:id/overview" exact component ={ Overview } />
     <RestaurantLayoutHOC path="/restaurant/:id/order-online" exact component ={ OrderOnline } />
     <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component ={   Menu } />
