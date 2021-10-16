@@ -10,9 +10,20 @@ import FoodList from "../../Components/restaurant/Order-Online/FoodList";
 
 // redux actions
 import { getFoodList } from "../../Redux/Reducer/Food/Food.action";
+import { addCart } from "../../Redux/Reducer/Cart/Cart.action";
 
 const OrderOnline = () => {
-  const [menu, setMenu] = useState([]);
+
+  
+const [menu, setMenu] = useState([]);
+  const [selected, setSelected] = useState("");
+
+  const onClickHandler = (e) => {
+    if (e.target.id) {
+      setSelected(e.target.id);
+    }
+    return;
+  };
 
   const reduxState = useSelector(
     (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
@@ -31,9 +42,14 @@ const OrderOnline = () => {
     <>
       <div className="w-full flex">
         <aside className="hidden md:flex flex-col gap-3 overflow-y-scroll  border-r h-screen border-gray-200 w-1/4"> 
-        <MenuListContainer />
-        <MenuListContainer />
-        <MenuListContainer />
+        {menu.map((item) => (
+            <MenuListContainer
+              {...item}
+              key={item._id}
+              onClickHandler={onClickHandler}
+              selected={selected}
+            />
+          ))}
 
 
         </aside>
@@ -45,7 +61,7 @@ const OrderOnline = () => {
           </h4>
          </div>
 
-          <section className="flex flex-col gap-3 md:gap-5">
+         <section className="flex h-screen lg:overflow-y-scroll flex-col gap-3 md:gap-5">
           {menu.map((item) => (
               <FoodList key={item._id} {...item} />
             ))}
