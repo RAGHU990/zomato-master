@@ -9,15 +9,13 @@ import NightLife from "../Components/NightLife";
 import Nutrition from "../Components/Nutrition";
 
 //redux action 
-import { getRestaurant } from "../Redux/Reducer/restaurant/restaurant.action";
+//import { getRestaurant } from "../Redux/Reducer/restaurant/restaurant.action";
 
 const Home = () => {
   const { type } = useParams();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-   dispatch(getRestaurant());
-  }, []);
+ 
   return (
     <div className="my-5">
       {type === "delivery" && <Delivery />}

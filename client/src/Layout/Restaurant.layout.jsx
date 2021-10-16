@@ -16,7 +16,6 @@ import CartContainer from "../Components/Cart/CartContainer";
 // Redux actions
 import { getSpecificRestaurant } from "../Redux/Reducer/restaurant/restaurant.action";
 import { getImage } from "../Redux/Reducer/Image/Image.action";
-import { getCart } from "../Redux/Reducer/Cart/Cart.action";
 
 const RestaurantLayout = (props) => {
   const [restaurant, setRestaurant] = useState({
@@ -39,7 +38,6 @@ const RestaurantLayout = (props) => {
         setRestaurant((prev) => ({ ...prev, ...data.payload.image }))
       );
     });
-    dispatch(getCart());
   }, []);
 
   return (
@@ -49,35 +47,35 @@ const RestaurantLayout = (props) => {
       <div className="container mx-auto px-4 lg:px-20 ">
       <ImageGrid images={restaurant.images} />
 
-        <RestaurantInfo
-             name={restaurant?.name}
-             restaurantRating={restaurant?.rating || 0}
-             deliveryRating={restaurant?.rating || 0}
-             cuisine={restaurant?.cuising}
-             address={restaurant?.address}
-        />
-        <div className="my-4 flex flex-wrap gap-3">
-          <InfoButtons isActive>
-            <TiStarOutline /> Add Review
-          </InfoButtons>
-          <InfoButtons>
-            <RiDirectionLine /> Direction
-          </InfoButtons>
-          <InfoButtons>
-            <BiBookmarkPlus /> Bookmark
-          </InfoButtons>
-          <InfoButtons>
-            <RiShareForwardLine /> Share
-          </InfoButtons>
-        </div>
-        <div className="my-10">
-          <TabContainer></TabContainer>
-        </div>
-        { props.children }
+<RestaurantInfo
+    name={restaurant?.name}
+    restaurantRating={restaurant?.rating || 0}
+    deliveryRating={restaurant?.rating || 0}
+    cuisine={restaurant?.cuising}
+    address={restaurant?.address}
+/>
+     <div className="my-4 flex flex-wrap gap-3">
+ <InfoButtons isActive>
+   <TiStarOutline /> Add Review
+ </InfoButtons>
+ <InfoButtons>
+   <RiDirectionLine /> Direction
+ </InfoButtons>
+ <InfoButtons>
+   <BiBookmarkPlus /> Bookmark
+ </InfoButtons>
+ <InfoButtons>
+   <RiShareForwardLine /> Share
+ </InfoButtons>
+     </div>
+       <div className="my-10">
+    <TabContainer></TabContainer>
+   </div>
+    { props.children }
       </div>
-      <CartContainer/>
-    </>
-  );
+    <CartContainer/>
+</>
+);
 };
-
 export default RestaurantLayout;
+      

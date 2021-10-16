@@ -5,14 +5,10 @@ import Navbar from "../Components/Navbar";
 import FoodTab from "../Components/FoodTab";
 
 // Redux action 
-import { getCart } from "../Redux/Reducer/Cart/Cart.action";
+//import { getCart } from "../Redux/Reducer/Cart/Cart.action";
 
 const HomeLayout = (props) => {
-    const dispatch = useDispatch();
-
-  useEffect(() => {
-  dispatch(getCart());
-  }, []);
+    
     return <>
     <Navbar />
     <FoodTab />
