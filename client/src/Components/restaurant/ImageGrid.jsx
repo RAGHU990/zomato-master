@@ -6,7 +6,7 @@ const ImageGrid = (props) => {
     <>
       <div className="w-full h-60 md:hidden">
         <img
-            src={props.images.length && props.images[0].location}
+             src="https://zomato-project-456.s3.ap-south-1.amazonaws.com/pizza.jpg"
           alt="restuarant image"
           className="w-full h-full object-cover rounded-lg "
         />
@@ -14,7 +14,7 @@ const ImageGrid = (props) => {
       <div className="hidden w-full h-96 md:flex gap-1">
         <div className="w-full h-full overflow-hidden">
           <img
-          src={props.images.length && props.images[0].location}
+                   src="https://zomato-project-123.s3.ap-south-1.amazonaws.com/briyani.jpg"
             alt="restuarant image"
             className="w-full h-full object-cover rounded-lg transform transition duration-700 hover:scale-110"
           />

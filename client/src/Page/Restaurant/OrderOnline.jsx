@@ -32,8 +32,8 @@ const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     reduxState &&
-      dispatch(getFoodList(reduxState.menu)).then((data) =>
-        setMenu(data.payload.menus.menus)
+      dispatch(getFoodList(reduxState?.menu)).then((data) =>
+        setMenu(data.payload.menus?.menus)
         
       );
   }, [reduxState]);
@@ -62,7 +62,7 @@ const [menu, setMenu] = useState([]);
          </div>
 
          <section className="flex h-screen lg:overflow-y-scroll flex-col gap-3 md:gap-5">
-          {menu.map((item) => (
+          {menu?.map((item) => (
               <FoodList key={item._id} {...item} />
             ))}
 
