@@ -28,7 +28,7 @@ const Photos = () => {
       )}
 
       <div className="flex flex-wrap gap-2">
-        {photos.map((photo) => (
+        {photos?.map((photo) => (
           <PhotoCollection image={photo} openViewer={openViewer} />
         ))}
       </div>

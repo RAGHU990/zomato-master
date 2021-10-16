@@ -15,7 +15,7 @@ const Router = express.Router();
  Router.get("/list/:_id", async (req, res) => {
      try {
          const  {_id} = req.params;
-         const menus = await MenuModel.findOne(_id);
+         const menus = await MenuModel.findById(_id);
 
          return res.json({ menus });
      } catch (error) {

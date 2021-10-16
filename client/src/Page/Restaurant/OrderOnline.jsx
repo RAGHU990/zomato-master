@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {AiOutlineCompass} from "react-icons/ai";
 import {IoTimeOutline} from "react-icons/io5";
 
 // components
 import FloatMenuBtn from "../../Components/restaurant/Order-Online/FloatMenuBtn";
-import Fooditem from "../../Components/restaurant/Order-Online/FoodItem";
 import MenuListContainer from "../../Components/restaurant/Order-Online/MenuListContainer";
 import FoodList from "../../Components/restaurant/Order-Online/FoodList";
 
+// redux actions
+import { getFoodList } from "../../Redux/Reducer/Food/Food.action";
+
 const OrderOnline = () => {
+  const [menu, setMenu] = useState([]);
+
+  const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    reduxState &&
+      dispatch(getFoodList(reduxState.menu)).then((data) =>
+        setMenu(data.payload.menus.menus)
+        
+      );
+  }, [reduxState]);
+
   return (
     <>
       <div className="w-full flex">
@@ -28,18 +46,10 @@ const OrderOnline = () => {
          </div>
 
           <section className="flex flex-col gap-3 md:gap-5">
-                <FoodList
-                 title="Recommended"
-                 items={[
-                  {
-                    price:"280" ,
-                    rating: 3 ,
-                    description:"A novel combination of our classic seeraga samba Biryani crowned with succulent chicken 65 chunks - Served With Boiled egg, Raita & Salna.",
-                    title :"Thalappakatti Chicken 65 Biryani" ,
-                    image:"https://b.zmtcdn.com/data/dish_photos/db1/a7ec0734459e3fb75c16e9df36419db1.jpg"}
-                  ]
-                }
-                   />
+          {menu.map((item) => (
+              <FoodList key={item._id} {...item} />
+            ))}
+
             </section>
             
             </div>
